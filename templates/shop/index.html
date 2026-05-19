@@ -11,24 +11,49 @@
 </div>
 
 <section id="menu" class="menu-section">
-    <h2 class="section-title">НАШЕ МЕНЮ</h2>
+    <h2 class="section-title" style="margin-bottom: 20px;">НАШЕ МЕНЮ</h2>
 
-    <div class="product-grid">
-        {% for product in products %}
-        <div class="product-card">
-            {% if product.image %}
-                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-            {% endif %}
-            <h3>{{ product.name }}</h3>
-            <p class="desc">{{ product.description }}</p>
-            <div class="price-buy">
-                <span class="price">{{ product.price }} ₴</span>
-                <button class="btn-buy">В кошик</button>
-            </div>
-        </div>
-        {% empty %}
-            <p style="color: white; text-align: center;">Товари скоро з'являться...</p>
+    <div class="category-nav" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 50px;">
+        {% for cat in categories %}
+            <a href="#cat-{{ cat.id }}" class="cat-btn">{{ cat.name }}</a>
         {% endfor %}
     </div>
+
+    {% for category in categories %}
+
+        <h3 id="cat-{{ category.id }}" style="color: white; text-align: center; font-family: 'Playfair Display', serif; font-size: 2rem; margin: 60px 0 30px 0; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 15px; scroll-margin-top: 100px;">
+            {{ category.name }}
+        </h3>
+
+        <div class="product-grid">
+            {% for product in category.product_set.all %}
+                {% if product.is_available %}
+                <div class="product-card">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                        <div class="product-placeholder">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                    {% endif %}
+
+                    <h3>{{ product.name }}</h3>
+                    <p class="desc">{{ product.description }}</p>
+
+                    <div class="price-buy">
+                        <span class="price">{{ product.price }} ₴</span>
+                        <form action="{% url 'cart_add' product.id %}" method="post" style="margin: 0;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-buy">В кошик</button>
+                        </form>
+                    </div>
+                </div>
+                {% endif %}
+            {% empty %}
+                <p style="color: #aaaaaa; text-align: center; width: 100%;">У цій категорії поки немає товарів.</p>
+            {% endfor %}
+        </div>
+
+    {% endfor %}
 </section>
 {% endblock content %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="menu-section" style="min-height: 60vh;">
+    <h2 class="section-title">ВАШ КОШИК</h2>
+    
+    {% if cart_items %}
+        <div class="cart-container">
+            {% for item in cart_items %}
+            <div class="cart-item-row">
+                <div class="cart-item-info">
+                    {% if item.product.image %}
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                    {% endif %}
+                    <h4>{{ item.product.name }}</h4>
+                </div>
+
+                <div class="cart-item-controls">
+                    <div class="qty-control">
+                        <a href="{% url 'cart_remove_one' item.product.id %}" class="qty-btn">-</a>
+                        <span class="qty-number">{{ item.quantity }}</span>
+                        <a href="{% url 'cart_add_one' item.product.id %}" class="qty-btn">+</a>
+                    </div>
+
+                    <div class="cart-item-price">{{ item.total }} ₴</div>
+
+                    <a href="{% url 'cart_remove' item.product.id %}" class="remove-btn" title="Видалити">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="cart-summary">
+            <div class="cart-total">
+                Разом: <span>{{ total_price }} ₴</span>
+            </div>
+            <div class="cart-actions">
+                <a href="{% url 'cart_clear' %}" class="btn-clear"><i class="fa-solid fa-broom"></i> Очистити кошик</a>
+                <a href="{% url 'index' %}#menu" class="btn-buy">Продовжити покупки</a>
+                <a href="#" class="btn-primary">ОФОРМИТИ ЗАМОВЛЕННЯ</a>
+            </div>
+        </div>
+
+    {% else %}
+        <p style="text-align: center; font-size: 1.2rem; color: #aaaaaa; margin-bottom: 40px;">Ваш кошик наразі порожній. 🥐</p>
+        <div style="text-align: center;">
+            <a href="{% url 'index' %}#menu" class="btn-primary" style="text-decoration: none;">Повернутися до меню</a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

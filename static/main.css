@@ -186,3 +186,203 @@ h1, h2, h3, .logo {
     background: var(--accent-gold);
     color: #111;
 }
+
+/* --- Кнопки швидкого доступу до категорій --- */
+.cat-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    text-decoration: none;
+    border-radius: 30px; /* Робить краї заокругленими */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.cat-btn:hover {
+    background-color: var(--accent-gold);
+    color: #111;
+}
+
+/* Додамо плавну прокрутку для всього сайту */
+html {
+    scroll-behavior: smooth;
+}
+/* --- Дизайн Сторінки Кошика --- */
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 12px;
+    padding: 15px 25px;
+}
+
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 50%;
+}
+
+.cart-item-info img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-item-info h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #fff;
+    margin: 0;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.qty-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 15px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.qty-btn {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.qty-btn:hover {
+    color: #fff;
+}
+
+.qty-number {
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+
+.cart-item-price {
+    color: var(--accent-gold);
+    font-size: 1.3rem;
+    font-weight: bold;
+    min-width: 100px;
+    text-align: right;
+}
+
+.remove-btn {
+    color: #ff4757;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.remove-btn:hover {
+    color: #ff6b81;
+    transform: scale(1.1);
+}
+
+.cart-summary {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.cart-total {
+    text-align: right;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.cart-total span {
+    color: var(--accent-gold);
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-left: 20px;
+}
+
+.cart-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-clear {
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    margin-right: auto; /* Відкидає цю кнопку вліво */
+}
+
+.btn-clear:hover {
+    color: #ff4757;
+}
+
+/* --- Заглушки для товарів без картинок --- */
+
+/* На головній сторінці */
+.product-placeholder {
+    width: 100%;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed rgba(212, 175, 55, 0.25); /* Пунктирна золота рамка */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-placeholder i {
+    color: var(--accent-gold);
+    font-size: 3.5rem;
+    opacity: 0.4;
+    transition: 0.3s;
+}
+
+/* Ефект при наведенні на картку */
+.product-card:hover .product-placeholder i {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+/* Маленька заглушка в кошику */
+.cart-placeholder {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed rgba(212, 175, 55, 0.25);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-placeholder i {
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
