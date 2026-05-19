@@ -42,6 +42,7 @@
 
                     <div class="price-buy">
                         <span class="price">{{ product.price }} ₴</span>
+
                         <form action="{% url 'cart_add' product.id %}" method="post" style="margin: 0;">
                             {% csrf_token %}
                             <button type="submit" class="btn-buy">В кошик</button>

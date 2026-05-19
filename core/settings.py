@@ -111,3 +111,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Налаштування для картинок товарів (Media)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = 'profile' # Після входу — на профіль
+LOGOUT_REDIRECT_URL = 'index'   # Після виходу — на головну

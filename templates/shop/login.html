@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="menu-section">
+    <div class="profile-container">
+        <div class="profile-avatar">
+            <i class="fa-solid fa-lock"></i>
+        </div>
+
+        <h2>Вхід у систему</h2>
+
+        {% if form.errors %}
+            <div class="login-error">
+                Невірний логін або пароль. Спробуйте ще раз.
+            </div>
+        {% endif %}
+
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">Ім'я користувача</label>
+                {{ form.username }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.password.id_for_label }}">Пароль</label>
+                {{ form.password }}
+            </div>
+
+            <button type="submit" class="btn-logout-big" style="width: 100%; border: none; cursor: pointer; margin-top: 10px;">
+                УВІЙТИ
+            </button>
+        </form>
+
+        <p style="margin-top: 20px; font-size: 0.8rem; color: #777;">
+            Доступ тільки для авторизованих партнерів Artisan & Co.
+        </p>
+    </div>
+</section>
+{% endblock %}

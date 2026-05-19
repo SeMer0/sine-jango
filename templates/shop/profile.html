@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="menu-section">
+    <div class="profile-container">
+        <div class="profile-avatar">
+            <i class="fa-solid fa-user-circle"></i>
+        </div>
+
+        <h2>Особистий кабінет</h2>
+
+        <div class="profile-info">
+            <p><strong>Ім'я користувача:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email|default:"Не вказано" }}</p>
+            <p><strong>Дата реєстрації:</strong> {{ user.date_joined|date:"d F Y" }}</p>
+        </div>
+
+        <a href="{% url 'logout' %}" class="btn-logout-big">
+            <i class="fa-solid fa-right-from-bracket"></i> Вийти з системи
+        </a>
+    </div>
+</section>
+{% endblock %}

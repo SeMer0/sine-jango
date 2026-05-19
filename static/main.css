@@ -386,3 +386,112 @@ html {
     font-size: 1.5rem;
     opacity: 0.5;
 }
+
+/* --- Стилі для сторінки профілю --- */
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.profile-container h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+}
+
+.profile-avatar {
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: var(--accent-gold);
+}
+
+.profile-info {
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    padding-top: 20px;
+    margin-top: 20px;
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+}
+
+.profile-info p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.profile-info strong {
+    color: var(--accent-gold);
+}
+
+.btn-logout-big {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: transparent;
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-logout-big:hover {
+    background: var(--accent-gold);
+    color: #111;
+}
+
+/* --- Стилі для форм входу --- */
+.auth-form {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.form-group input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+}
+
+.login-error {
+    color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}

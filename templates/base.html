@@ -22,6 +22,11 @@
         <div class="nav-links">
             <a href="{% url 'index' %}#menu">МЕНЮ</a>
             <a href="#">ПРО НАС</a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}">ПРОФІЛЬ</a>
+            {% else %}
+            <a href="{% url 'login' %}">ВХІД</a>
+            {% endif %}
             <a href="{% url 'cart_detail' %}"><i class="fa-solid fa-cart-shopping"></i> ({{ cart|length }})</a>
         </div>
     </nav>

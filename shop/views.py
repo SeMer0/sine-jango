@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from decimal import Decimal
-from .models import Product, Category  # <-- ОСЬ ТУТ МИ ДОДАЛИ Category
+from .models import Product, Category
 from .cart import Cart
+from django.contrib.auth import logout
 
 
 def index(request):
@@ -14,7 +16,6 @@ def cart_add(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.add(product=product)
-
     return redirect(f"{reverse('index')}#menu")
 
 
@@ -35,15 +36,13 @@ def cart_detail(request):
 
     return render(request, 'shop/cart_detail.html', {'cart_items': cart_items, 'total_price': total_price})
 
-# ... твій попередній код (index, cart_add, cart_detail) залишається тут ...
-
-# НОВІ ФУНКЦІЇ ДЛЯ КОШИКА:
 
 def cart_add_one(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.add(product=product)
-    return redirect('cart_detail') # Залишаємось у кошику
+    return redirect('cart_detail')
+
 
 def cart_remove_one(request, product_id):
     cart = Cart(request)
@@ -51,13 +50,24 @@ def cart_remove_one(request, product_id):
     cart.decrement(product=product)
     return redirect('cart_detail')
 
+
 def cart_remove(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product=product)
     return redirect('cart_detail')
 
+
 def cart_clear(request):
     cart = Cart(request)
     cart.clear()
     return redirect('cart_detail')
+
+
+
+def profile(request):
+    return render(request, 'shop/profile.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('index')
