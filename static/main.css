@@ -1,0 +1,57 @@
+:root {
+    /* Наша кольорова палітра */
+    --bg-dark: #121212;
+    --accent-gold: #D4AF37;
+    --text-light: #F5F5F5;
+    --text-muted: #A0A0A0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Додамо трохи висоти, щоб побачити ефект при прокрутці */
+    min-height: 200vh;
+}
+
+/* Стилі для логотипів та заголовків */
+h1, h2, h3, .logo {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Скляна навігація */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(18, 18, 18, 0.7); /* Напівпрозорий темний фон */
+    backdrop-filter: blur(12px);       /* Ефект розмиття (скло) */
+    -webkit-backdrop-filter: blur(12px); /* Для Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.logo {
+    font-size: 28px;
+    color: var(--accent-gold);
+    letter-spacing: 2px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 35px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-gold);
+}
