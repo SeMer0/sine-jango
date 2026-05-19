@@ -13,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
     /* Додамо трохи висоти, щоб побачити ефект при прокрутці */
-    min-height: 200vh;
+    min-height: 100vh;
 }
 
 /* Стилі для логотипів та заголовків */
@@ -21,7 +21,7 @@ h1, h2, h3, .logo {
     font-family: 'Playfair Display', serif;
 }
 
-/* Скляна навігація */
+/* --- Скляна навігація --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -54,4 +54,135 @@ h1, h2, h3, .logo {
 
 .nav-links a:hover {
     color: var(--accent-gold);
+}
+
+/* --- Головний банер (МИТЬ ЗАДОВОЛЕННЯ) --- */
+.hero {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Кнопка на головному банері */
+.btn-primary {
+    display: inline-block;
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    padding: 15px 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-gold);
+    color: #111;
+}
+
+/* --- Секція Меню --- */
+.menu-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    color: var(--accent-gold);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+/* Сітка для карток (адаптивна) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Дизайн самої картки товару */
+.product-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-gold);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.product-card h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.product-card .desc {
+    color: #aaaaaa;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    height: 65px;
+    overflow: hidden;
+}
+
+.price-buy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    color: var(--accent-gold);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.btn-buy {
+    background: transparent;
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    padding: 8px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-buy:hover {
+    background: var(--accent-gold);
+    color: #111;
 }

@@ -1,8 +1,13 @@
 from django.contrib import admin
-from django.urls import path
-from shop.views import home  # <-- Імпортуємо нашу функцію з shop
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),  # <-- Порожній шлях '' означає головну сторінку
+    path('', include('shop.urls')),
 ]
+
+# Ось ця частина каже Django віддавати медіа-файли (картинки)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
