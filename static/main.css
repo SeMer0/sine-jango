@@ -495,3 +495,14 @@ html {
     margin-bottom: 20px;
     font-size: 0.9rem;
 }
+
+/* Робимо стандартні поля Django красивими */
+#id_username, #id_password1, #id_password2 {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: #fff;
+    margin-bottom: 15px;
+}

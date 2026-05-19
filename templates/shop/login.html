@@ -9,6 +9,9 @@
         </div>
 
         <h2>Вхід у систему</h2>
+        <p style="margin-top: 20px; color: #aaa;">
+         Немає акаунту? <a href="{% url 'register' %}" style="color: var(--accent-gold);">Зареєструйтесь тут</a>
+        </p>
 
         {% if form.errors %}
             <div class="login-error">

@@ -5,6 +5,8 @@ from decimal import Decimal
 from .models import Product, Category
 from .cart import Cart
 from django.contrib.auth import logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 
 
 def index(request):
@@ -71,3 +73,14 @@ def profile(request):
 def logout_view(request):
     logout(request)
     return redirect('index')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user) # Автоматично логінимо після реєстрації
+            return redirect('profile')
+    else:
+        form = UserCreationForm()
+    return render(request, 'shop/register.html', {'form': form})

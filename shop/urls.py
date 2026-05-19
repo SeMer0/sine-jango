@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('profile/', views.profile, name='profile'),
     path('logout/', views.logout_view, name='logout'),
+    path('register/', views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='shop/login.html'), name='login'),
 
     # Шляхи для кошика:
