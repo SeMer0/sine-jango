@@ -5,13 +5,21 @@
 <section class="menu-section">
     <div class="profile-container">
         <h2>Реєстрація</h2>
+        <p style="color: #aaa; margin-bottom: 20px;">Створіть акаунт для доступу до Artisan & Co.</p>
+
         <form method="post" class="auth-form" style="margin-top: 20px;">
             {% csrf_token %}
+
             {{ form.as_p }}
-            <button type="submit" class="btn-logout-big" style="width: 100%; border: none; cursor: pointer;">
+
+            <button type="submit" class="btn-logout-big" style="width: 100%; border: none; cursor: pointer; margin-top: 20px;">
                 ЗАРЕЄСТРУВАТИСЯ
             </button>
         </form>
+
+        <p style="margin-top: 20px;">
+            Вже є акаунт? <a href="{% url 'login' %}" style="color: var(--accent-gold);">Увійдіть тут</a>
+        </p>
     </div>
 </section>
 {% endblock %}

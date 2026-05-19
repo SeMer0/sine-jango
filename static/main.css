@@ -506,3 +506,25 @@ html {
     color: #fff;
     margin-bottom: 15px;
 }
+
+/* Гарне оформлення для всіх форм Django */
+.auth-form p {
+    margin-bottom: 20px;
+    color: #aaa;
+}
+
+.auth-form input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: #fff;
+    margin-top: 5px;
+}
+
+/* Підсвітка при натисканні */
+.auth-form input:focus {
+    border-color: var(--accent-gold);
+    outline: none;
+}

@@ -7,6 +7,7 @@ from .cart import Cart
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from .forms import RegisterForm # Імпортуємо нашу нову форму
 
 
 def index(request):
@@ -76,11 +77,11 @@ def logout_view(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegisterForm(request.POST) # Використовуємо RegisterForm
         if form.is_valid():
             user = form.save()
-            login(request, user) # Автоматично логінимо після реєстрації
+            login(request, user)
             return redirect('profile')
     else:
-        form = UserCreationForm()
+        form = RegisterForm() # Використовуємо RegisterForm
     return render(request, 'shop/register.html', {'form': form})
