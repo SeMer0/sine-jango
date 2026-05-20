@@ -40,7 +40,9 @@
             <div class="cart-actions">
                 <a href="{% url 'cart_clear' %}" class="btn-clear"><i class="fa-solid fa-broom"></i> Очистити кошик</a>
                 <a href="{% url 'index' %}#menu" class="btn-buy">Продовжити покупки</a>
-                <a href="#" class="btn-primary">ОФОРМИТИ ЗАМОВЛЕННЯ</a>
+                <a href="{% url 'checkout' %}" class="btn-logout-big" style="text-decoration: none; padding: 12px 25px;">
+                ОФОРМИТИ ЗАМОВЛЕННЯ
+                </a>
             </div>
         </div>
 

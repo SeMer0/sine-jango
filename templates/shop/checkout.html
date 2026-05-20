@@ -1,12 +1,54 @@
 {% extends 'base.html' %}
+
 {% block content %}
 <section class="menu-section">
     <div class="profile-container">
         <h2>Оформлення замовлення</h2>
+        <p style="color: #aaa; margin-bottom: 20px;">Введіть ваші дані для доставки</p>
+
         <form method="post" class="auth-form" style="margin-top: 20px;">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn-logout-big" style="width: 100%; border: none; cursor: pointer;">
+
+            <div class="form-group">
+                <label for="{{ form.full_name.id_for_label }}">{{ form.full_name.label }}</label>
+                {{ form.full_name }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
+                {{ form.phone }}
+            </div>
+
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #333;">
+                <h3 style="color: var(--accent-gold); margin-bottom: 15px; font-size: 1.2rem;">Адреса доставки</h3>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>Місто</label>
+                    <input type="text" value="Луцьк" disabled style="background: rgba(255, 255, 255, 0.02); color: #888; cursor: not-allowed;">
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.street.id_for_label }}">{{ form.street.label }}</label>
+                    {{ form.street }}
+                </div>
+
+                <div style="display: flex; gap: 15px;">
+                    <div class="form-group" style="flex: 1;">
+                        <label for="{{ form.house_number.id_for_label }}">{{ form.house_number.label }}</label>
+                        {{ form.house_number }}
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label for="{{ form.apartment.id_for_label }}">{{ form.apartment.label }}</label>
+                        {{ form.apartment }}
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 15px;">
+                    <label for="{{ form.comment.id_for_label }}">{{ form.comment.label }}</label>
+                    {{ form.comment }}
+                </div>
+            </div>
+
+            <button type="submit" class="btn-logout-big" style="width: 100%; border: none; cursor: pointer; margin-top: 30px;">
                 ПІДТВЕРДИТИ ЗАМОВЛЕННЯ
             </button>
         </form>

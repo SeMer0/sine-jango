@@ -74,12 +74,25 @@ def checkout(request):
             # Рахуємо загальну суму
             total_amount = sum(Decimal(str(item['price'])) * item['quantity'] for item in cart.cart.values())
 
+            # Збираємо розширену адресу з нових полів форми
+            street = form.cleaned_data['street']
+            house = form.cleaned_data['house_number']
+            apt = form.cleaned_data['apartment']
+            comment = form.cleaned_data['comment']
+
+            # Формуємо рядок адреси зі статичним Луцьком
+            full_address = f"м. Луцьк, вул. {street}, буд. {house}"
+            if apt:
+                full_address += f", кв./оф. {apt}"
+            if comment:
+                full_address += f" | Коментар: {comment}"
+
             # Створюємо замовлення
             order = Order.objects.create(
                 user=request.user if request.user.is_authenticated else None,
                 full_name=form.cleaned_data['full_name'],
                 phone=form.cleaned_data['phone'],
-                address=form.cleaned_data['address'],
+                address=full_address,  # Записуємо нашу зліплену адресу
                 total_price=total_amount
             )
 

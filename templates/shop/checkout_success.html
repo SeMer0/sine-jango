@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="menu-section">
+    <div class="profile-container" style="text-align: center;">
+        <i class="fa-solid fa-circle-check" style="font-size: 50px; color: var(--accent-gold); margin-bottom: 20px;"></i>
+        <h2>Дякуємо за замовлення!</h2>
+        <p style="color: #aaa; margin-top: 20px; font-size: 1.1rem;">
+            Номер вашого замовлення: <strong style="color: #fff;">#{{ order.id }}</strong>
+        </p>
+        <p style="color: #aaa; margin-top: 10px;">
+            Ми зв'яжемося з вами найближчим часом для підтвердження.
+        </p>
+        
+        <div style="margin-top: 40px;">
+            <a href="{% url 'index' %}" class="btn-logout-big" style="text-decoration: none;">
+                ПОВЕРНУТИСЯ ДО МЕНЮ
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
