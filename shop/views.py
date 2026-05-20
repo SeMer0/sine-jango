@@ -113,8 +113,14 @@ def checkout(request):
     return render(request, 'shop/checkout.html', {'form': form})
 
 
+# ДОДАЙ СЛОВО def ОСЬ ТУТ:
 def profile(request):
-    return render(request, 'shop/profile.html')
+    if request.user.is_staff:
+        orders = Order.objects.all().order_by('-created_at')
+    else:
+        orders = Order.objects.filter(user=request.user).order_by('-created_at')
+
+    return render(request, 'shop/profile.html', {'orders': orders})
 
 
 def logout_view(request):

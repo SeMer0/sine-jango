@@ -19,6 +19,50 @@
         <a href="{% url 'logout' %}" class="btn-logout-big">
             <i class="fa-solid fa-right-from-bracket"></i> Вийти з системи
         </a>
+        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #333; width: 100%;">
+            <h3 style="color: var(--accent-gold); margin-bottom: 20px; text-align: center; font-size: 1.3rem;">
+                {% if request.user.is_staff %}
+                    Всі замовлення клієнтів (Адмін-панель)
+                {% else %}
+                    Історія моїх замовлень
+                {% endif %}
+            </h3>
+
+            {% if orders %}
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid var(--accent-gold); color: #aaa;">
+                            <th style="padding: 12px 10px;">ID</th>
+                            <th style="padding: 12px 10px;">Дата</th>
+                            <th style="padding: 12px 10px;">Клієнт (Тел)</th>
+                            <th style="padding: 12px 10px;">Сума</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff;">
+                            <td style="padding: 12px 10px; font-weight: bold; color: var(--accent-gold);">#{{ order.id }}</td>
+                            <td style="padding: 12px 10px;">{{ order.created_at|date:"d.m.Y H:i" }}</td>
+                            <td style="padding: 12px 10px;">
+                                {{ order.full_name }} <br>
+                                <span style="color: #888; font-size: 0.85rem;">{{ order.phone }}</span>
+                            </td>
+                            <td style="padding: 12px 10px; font-weight: bold;">{{ order.total_price }} ₴</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p style="text-align: center; color: #888; margin-top: 20px;">
+                {% if request.user.is_staff %}Ще немає жодного замовлення.{% else %}Ви ще нічого не замовляли.{% endif %}
+            </p>
+            {% endif %}
+        </div>
+
+
+
     </div>
 </section>
 {% endblock %}
