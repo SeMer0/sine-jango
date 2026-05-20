@@ -21,7 +21,7 @@ class Product(models.Model):
         return self.name
 
 class Order(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     full_name = models.CharField(max_length=100)
     phone = models.CharField(max_length=20, default="")
     address = models.TextField(default="")

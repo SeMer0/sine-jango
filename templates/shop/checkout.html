@@ -9,41 +9,41 @@
         <form method="post" class="auth-form" style="margin-top: 20px;">
             {% csrf_token %}
 
-            <div class="form-group">
-                <label for="{{ form.full_name.id_for_label }}">{{ form.full_name.label }}</label>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="{{ form.full_name.id_for_label }}" style="color: #aaa; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 5px;">{{ form.full_name.label }}</label>
                 {{ form.full_name }}
             </div>
-            <div class="form-group">
-                <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="{{ form.phone.id_for_label }}" style="color: #aaa; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 5px;">{{ form.phone.label }}</label>
                 {{ form.phone }}
             </div>
 
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #333;">
-                <h3 style="color: var(--accent-gold); margin-bottom: 15px; font-size: 1.2rem;">Адреса доставки</h3>
+                <h3 style="color: var(--accent-gold); margin-bottom: 20px; font-size: 1.2rem; text-align: center;">Адреса доставки</h3>
 
-                <div class="form-group" style="margin-bottom: 15px;">
-                    <label>Місто</label>
-                    <input type="text" value="Луцьк" disabled style="background: rgba(255, 255, 255, 0.02); color: #888; cursor: not-allowed;">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label style="color: #aaa; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 5px;">Місто</label>
+                    <input type="text" value="Луцьк" disabled style="width: 100%; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px; padding: 12px 15px; color: #888; cursor: not-allowed; box-sizing: border-box;">
                 </div>
 
-                <div class="form-group">
-                    <label for="{{ form.street.id_for_label }}">{{ form.street.label }}</label>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="{{ form.street.id_for_label }}" style="color: #aaa; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 5px;">{{ form.street.label }}</label>
                     {{ form.street }}
                 </div>
 
-                <div style="display: flex; gap: 15px;">
-                    <div class="form-group" style="flex: 1;">
-                        <label for="{{ form.house_number.id_for_label }}">{{ form.house_number.label }}</label>
+                <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+                    <div class="form-group" style="flex: 1; min-width: 0;">
+                        <label for="{{ form.house_number.id_for_label }}" style="color: #aaa; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 5px;">{{ form.house_number.label }}</label>
                         {{ form.house_number }}
                     </div>
-                    <div class="form-group" style="flex: 1;">
-                        <label for="{{ form.apartment.id_for_label }}">{{ form.apartment.label }}</label>
+                    <div class="form-group" style="flex: 1; min-width: 0;">
+                        <label for="{{ form.apartment.id_for_label }}" style="color: #aaa; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 5px;">Квартира/Офіс</label>
                         {{ form.apartment }}
                     </div>
                 </div>
 
-                <div class="form-group" style="margin-top: 15px;">
-                    <label for="{{ form.comment.id_for_label }}">{{ form.comment.label }}</label>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="{{ form.comment.id_for_label }}" style="color: #aaa; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 5px;">{{ form.comment.label }}</label>
                     {{ form.comment }}
                 </div>
             </div>
