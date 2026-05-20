@@ -138,3 +138,6 @@ def register(request):
     else:
         form = RegisterForm()
     return render(request, 'shop/register.html', {'form': form})
+
+def about(request):
+    return render(request, 'shop/about.html')
