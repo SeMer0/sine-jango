@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="menu-section">
+    <div class="profile-container">
+        <h2>Оформлення замовлення</h2>
+        <form method="post" class="auth-form" style="margin-top: 20px;">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-logout-big" style="width: 100%; border: none; cursor: pointer;">
+                ПІДТВЕРДИТИ ЗАМОВЛЕННЯ
+            </button>
+        </form>
+    </div>
+</section>
+{% endblock %}
